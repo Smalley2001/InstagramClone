@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public String photoFileName = "photo.jpg";
     private EditText etDescription;
     private Button btnCaptureImage;
+    private Button btnFeed;
     private ImageView ivPostImage;
     private Button btnSubmit;
     private File photoFile;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
         logout = findViewById(R.id.btnLogout);
+        btnFeed = findViewById(R.id.btnFeed);
 
         // Set OnClick listener to trigger Parse logout
         logout.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +95,21 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        //Set click listener for Feed button, if button clicked
+        //Create intent to FeedActivity
+        btnFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goFeedActivity();
+            }
+        });
+    }
+
+    private void goFeedActivity() {
+
+        Intent i = new Intent(this, FeedActivity.class);
+        startActivity(i);
     }
 
     private void launchCamera() {
