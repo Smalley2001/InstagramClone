@@ -3,6 +3,7 @@ package com.codepath.instagramclone;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,8 @@ import android.util.Log;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +23,7 @@ public class FeedActivity extends AppCompatActivity {
     public static final String TAG = "FeedActivity";
     protected PostsAdapter adapter;
     protected List<Post> allPosts;
+    private SwipeRefreshLayout swipeContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,26 @@ public class FeedActivity extends AppCompatActivity {
         rvPosts.setAdapter(adapter);
         // set the layout manager on the recycler view
         rvPosts.setLayoutManager(new LinearLayoutManager(this));
+
+        // Lookup the swipe container view
+         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+
+         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+             @Override
+             public void onRefresh() {
+
+                 // Your code to refresh the list here.
+                 // Make sure you call swipeContainer.setRefreshing(false)
+                 // once the network request has completed successfully.
+                 //adapter.clear();
+                 //adapter.addAll(allPosts);
+                 //swipeContainer.setRefreshing(false);
+                 //adapter.notifyDataSetChanged();
+                 queryPosts();
+                 Log.i(TAG, "It worked!");
+             }
+         });
+
         // query posts from Parstagram
         queryPosts();
     }
@@ -66,8 +90,10 @@ public class FeedActivity extends AppCompatActivity {
                 }
 
                 // save received posts to list and notify adapter of new data
+                adapter.clear();
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
+                swipeContainer.setRefreshing(false);
             }
         });
     }
