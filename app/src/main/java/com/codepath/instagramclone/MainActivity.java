@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.codepath.instagramclone.fragments.ComposeFragment;
 import com.codepath.instagramclone.fragments.PostsFragment;
+import com.codepath.instagramclone.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -71,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new ComposeFragment();
                         break;
                     case R.id.action_profile:
-                        // do something here
+                        // Create the Profile Fragement
 //                        Toast.makeText(MainActivity.this, "Profile!!", Toast.LENGTH_SHORT).show();
-                        fragment = new ComposeFragment();
+                        fragment = new ProfileFragment();
                         break;
                     default:
                         fragment = new ComposeFragment();

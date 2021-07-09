@@ -33,11 +33,11 @@ import java.util.List;
  */
 public class PostsFragment extends Fragment {
 
-    private static final String TAG = "PostsFragement";
-    private RecyclerView rvPosts;
-    private PostsAdapter adapter;
-    private List<Post> allPosts;
-    private SwipeRefreshLayout swipeContainer;
+    protected static final String TAG = "PostsFragement";
+    protected RecyclerView rvPosts;
+    protected PostsAdapter adapter;
+    protected List<Post> allPosts;
+    protected SwipeRefreshLayout swipeContainer;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -132,7 +132,7 @@ public class PostsFragment extends Fragment {
         queryPosts();
     }
 
-    private void queryPosts() {
+    protected void queryPosts() {
         // specify what type of data we want to query - Post.class
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         // include data referred by user key
