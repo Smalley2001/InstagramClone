@@ -1,8 +1,10 @@
 package com.codepath.instagramclone;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,12 +14,14 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -25,6 +29,8 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.List;
@@ -37,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etDescription;
     private Button btnCaptureImage;
     private Button btnFeed;
+    private BottomNavigationView bottomNavigationView;
     private ImageView ivPostImage;
     private Button btnSubmit;
     private File photoFile;
@@ -52,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         btnCaptureImage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
+        bottomNavigationView = findViewById(R.id.bottomNavigation);
         logout = findViewById(R.id.btnLogout);
         btnFeed = findViewById(R.id.btnFeed);
 
@@ -72,6 +80,33 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 launchCamera();
+            }
+        });
+
+        //Set a listener for thre bottom Navigation View to determine when a menu item
+        //in the bottom navifation view has been selected. To do this, we gave each menu
+        //item an id that we can get in order to provide unique functionality for each item
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
+                Fragment fragment;
+                switch (item.getItemId()) {
+                    case R.id.action_home:
+                        // do something here
+                        Toast.makeText(MainActivity.this, "Home!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_compose:
+                        // do something here
+                        Toast.makeText(MainActivity.this, "Compose!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.action_profile:
+                        // do something here
+                        Toast.makeText(MainActivity.this, "Profile!!", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
             }
         });
 
