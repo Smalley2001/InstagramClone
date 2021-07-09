@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.codepath.instagramclone.fragments.ComposeFragment;
+import com.codepath.instagramclone.fragments.LogoutFragment;
 import com.codepath.instagramclone.fragments.PostsFragment;
 import com.codepath.instagramclone.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -72,9 +73,13 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new ComposeFragment();
                         break;
                     case R.id.action_profile:
-                        // Create the Profile Fragement
+                        // Create the Profile Fragment
 //                        Toast.makeText(MainActivity.this, "Profile!!", Toast.LENGTH_SHORT).show();
                         fragment = new ProfileFragment();
+                        break;
+                    case R.id.action_logout:
+                        //Create the Logout Fragment
+                        fragment = new LogoutFragment();
                         break;
                     default:
                         fragment = new ComposeFragment();

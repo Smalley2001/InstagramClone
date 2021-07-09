@@ -38,5 +38,13 @@
         android:backgroundTint="#458eff"
         android:text="Login" />
 
+    <Button
+        android:id="@+id/btnRegistration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:backgroundTint="#458eff"
+        android:text="Registration" />
+
 
 </LinearLayout>

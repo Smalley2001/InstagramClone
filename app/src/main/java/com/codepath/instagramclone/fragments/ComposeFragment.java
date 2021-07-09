@@ -58,7 +58,6 @@ public class ComposeFragment extends Fragment {
     private Button btnSubmit;
     private File photoFile;
 
-    Button logout;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -119,20 +118,7 @@ public class ComposeFragment extends Fragment {
         btnCaptureImage = view.findViewById(R.id.btnCaptureImage);
         ivPostImage = view.findViewById(R.id.ivPostImage);
         btnSubmit = view.findViewById(R.id.btnSubmit);
-        logout = view.findViewById(R.id.btnLogout);
         btnFeed = view.findViewById(R.id.btnFeed);
-
-
-        // Set OnClick listener to trigger Parse logout
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                ParseUser.logOut();
-                goLoginActivity();
-
-            }
-        });
 
         //queryPosts();
 
@@ -254,12 +240,5 @@ public class ComposeFragment extends Fragment {
             }
         });
     }
-
-    private void goLoginActivity() {
-
-        Intent i = new Intent(getContext(), LoginActivity.class);
-        startActivity(i);
-    }
-
 
 }
