@@ -1,3 +1,6 @@
+
+//THIS CODE HAS BEEN MIGRATED TO PostsFragment ignore this activity as well as activity_feed.xml
+
 package com.codepath.instagramclone;
 
 import androidx.appcompat.app.AppCompatActivity;
