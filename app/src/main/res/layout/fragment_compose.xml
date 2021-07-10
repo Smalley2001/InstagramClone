@@ -38,14 +38,4 @@
         android:text="Feed" />
 
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentBottom="false"
-        android:text="Logout"
-        tools:layout_editor_absoluteX="313dp"
-        tools:layout_editor_absoluteY="680dp" />
-
 </LinearLayout>

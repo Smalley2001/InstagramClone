@@ -157,14 +157,14 @@ public class ComposeFragment extends Fragment {
         btnFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goFeedActivity();
+                goMainActivity();
             }
         });
     }
 
-    private void goFeedActivity() {
+    private void goMainActivity() {
 
-        Intent i = new Intent(getContext(), FeedActivity.class);
+        Intent i = new Intent(getContext(), MainActivity.class);
         startActivity(i);
     }
 
